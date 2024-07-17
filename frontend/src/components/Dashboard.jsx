@@ -9,7 +9,7 @@ function Dashboard(){
             <div>
             <Appbar></Appbar>
             </div>
-            <div className="pl-8 mr-4 mb-8">
+            <div className="pl-8 mr-4">
             <Balance label={2000}></Balance>
             <User></User>
             </div>
