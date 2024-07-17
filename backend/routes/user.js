@@ -23,8 +23,8 @@ userRouter.post('/signup', async (req, res)=>{
     }
     const user = await User.create({
         username : createPayload.username,
-        firstname : createPayload.firstname,
-        lastname : createPayload.lastname,
+        firstName : createPayload.firstName,
+        lastName : createPayload.lastName,
         password : createPayload.password
     });
     const userId = user._id;
@@ -33,7 +33,7 @@ userRouter.post('/signup', async (req, res)=>{
         balance: (1+Math.random()*10000)
     })
     const token = jwt.sign({userId: userId}, JWT_SECRET);
-    res.status(200).json({
+    return res.status(200).json({
         message: "User created successfully",
 	    token: token,
         balance:account.balance
