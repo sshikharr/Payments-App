@@ -11,13 +11,13 @@ userRouter.post('/signup', async (req, res)=>{
     const createPayload = req.body;
     const parsedPayload = userCreate.safeParse(createPayload);
     if(!parsedPayload){
-        res.status(411).json({
+        return res.status(411).json({
             message: "Email already taken / Incorrect inputs"
         });
     }
     const userExists = await User.findOne({username:createPayload.username});
     if(userExists){
-        res.status(411).json({
+        return res.status(411).json({
             message: "Email already taken / Incorrect inputs"
         });
     }
